@@ -1,0 +1,20 @@
+{
+  "navbar.title": "Wispro Challenge",
+  "button.login": "Login",
+  "button.enter": "Ingresar",
+  "button.confirm": "Confirmar",
+  "button.cancel": "Cancelar",
+  "modal.message": "¿Esta seguro que desea salir?",
+  "header.home": "Inicio",
+  "header.english": "Ingles",
+  "header.spanish": "Español",
+  "login.loginTitle": "Login",
+  "login.user": "Correo electrónico",
+  "login.password": "Contraseña",
+  "login.session": "Mantener mi sesión conectada",
+  "users.search": "Buscar",
+  "users.order": "Ordenar de a-z",
+  "users.created": "Creado en {year} por {author}",
+  "users.licence": "Licencia de {licence}",
+  "users.category": "Categoria:"
+}

@@ -1,0 +1,56 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "address": "Calle Juan Martín 123",
+        "name": "juan",
+        "surname": "Perez",
+        "email": "juan@gmail.com",
+        "createDate": "10/05/2019",
+        "dni": 23456897
+      },
+      {
+        "id": 2,
+        "address": "Belgrano 222",
+        "name": "Martin",
+        "surname": "Gonzalez",
+        "email": "martin@test.com",
+        "createDate": "10/05/2020",
+        "dni": 26456831
+      },
+      {
+        "id": 3,
+        "address": "Mitre 321",
+        "name": "Maria",
+        "surname": "Lopez",
+        "email": "lopez@gmail.com",
+        "createDate": "2/10/2020",
+        "dni": 33445237
+      },
+      {
+        "id": 4,
+        "address": "Peron esquina 20",
+        "name": "Ignacio",
+        "surname": "Delucca",
+        "email": "ignacio@gmail.com",
+        "createDate": "12/08/2020",
+        "dni":  30987564
+      },
+      {
+        "id": 5,
+        "address": "Barrio las quintas 231",
+        "name": "Susana",
+        "surname": "Pereyra",
+        "email": "susana@hotmail.com",
+        "createDate": "2/07/2019",
+        "dni":  27896444
+      }
+    ],
+    "profile": 
+      {
+        "id": 1,
+        "email": "admin@hotmail.com",
+        "password": "1234"
+      }
+  }
+  

@@ -16,5 +16,18 @@
   "users.order": "Ordenar de a-z",
   "users.created": "Creado en {year} por {author}",
   "users.licence": "Licencia de {licence}",
-  "users.category": "Categoria:"
+  "users.category": "Categoria:",
+
+  "userTable.title": "Listado de usuarios",
+  "usersTable.noData": "No se encontraron datos",
+  "userTable.name": "Nombre",
+  "userTable.surname": "Apellido",
+  "userTable.address": "Dirección",
+  "userTable.email": "Email",
+  "userTable.creationDate": "Fecha de alta",
+  "userTable.dni": "Dni",
+  "userTable.reset": "Limpiar filtros",
+
+  "userFilter.title": "Filtrar por",
+  "userFilter.select": "Seleccionar..."
 }

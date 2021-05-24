@@ -1,4 +1,4 @@
-import types from "../../actions/loginActions/types";
+import types from "../../actions/usersActions/types";
 import { REQUEST_STATUS } from "../../../constants";
 
 export const users = (
@@ -10,6 +10,7 @@ export const users = (
   action
 ) => {
   const { payload: { error, data } = {} } = action;
+
   switch (action.type) {
     case types.FETCH_USERS_REQUEST:
       return {

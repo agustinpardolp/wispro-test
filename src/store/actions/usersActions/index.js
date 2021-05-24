@@ -1,29 +1,35 @@
 import types from "./types";
 import { usersServices } from "../../../services/usersServices";
 
-export const fetchusersSRequest = () => {
+export const fetchUsersRequest = () => {
   return {
     type: types.FETCH_USERS_REQUEST,
   };
 };
-export const fetchusersSSuccess = (data) => {
+export const fetchUsersSuccess = (data) => {
   return {
     type: types.FETCH_USERS_SUCCESS,
     payload: { data: data },
   };
 };
-export const fetchusersSFailure = (error) => {
+export const fetchUsersFailure = (error) => {
   return {
     type: types.FETCH_USERS_FAILURE,
     payload: error,
   };
 };
-export const fetchusersS = () => {
+export const fetchUsers = () => {
   return (dispatch) => {
-    dispatch(fetchusersSRequest());
+    dispatch(fetchUsersRequest());
     usersServices
-      .fetchusersS()
-      .then((res) => dispatch(fetchusersSSuccess(res.data)))
-      .catch((error) => dispatch(fetchusersSFailure(error)));
+      .fetchUsers()
+      .then((querySnapshot) => {
+        let usersArray = [];
+        querySnapshot.forEach(function (doc) {
+          usersArray.push(doc.data());
+        });
+        return dispatch(fetchUsersSuccess(usersArray))
+      })
+      .catch((error) => dispatch(fetchUsersFailure(error)));
   };
 };

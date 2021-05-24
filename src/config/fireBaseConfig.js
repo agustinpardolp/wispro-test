@@ -3,7 +3,7 @@ import "firebase/firestore";
 import "firebase/storage";
 import "firebase/auth";
 
-var firebaseConfig = {
+let firebaseConfig = {
   apiKey: "AIzaSyDsCV7tzyGmLs9_Yg1y9sGzZaEXjty4mv0",
   authDomain: "wispro-api.firebaseapp.com",
   databaseURL: "https://wispro-api-default-rtdb.firebaseio.com",

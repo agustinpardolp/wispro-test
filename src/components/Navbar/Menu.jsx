@@ -4,9 +4,9 @@ import { FormattedMessage } from "react-intl";
 import Button from "../Button";
 import { Context } from "../LenguageWrapper";
 
-import { StyledMenu, StyledLink } from "./styled-components";
+import { StyledMenu } from "./styled-components";
 
-const Menu = ({ pathname, display, history, token, openModal }) => {
+const Menu = ({ display, token, openModal }) => {
   const context = useContext(Context);
   const hasToken = token && token.length;
 

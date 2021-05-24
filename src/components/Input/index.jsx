@@ -20,34 +20,35 @@ const Input = ({
   name,
   tabIndex,
   disableErrors,
-  iconType,
   style,
   checked,
+  icon,
 }) => {
   return (
     <StyledInputContainer>
       {disableLabel ? null : (
-        <div className="label">
-          <label htmlFor="">
-            <FormattedMessage id={label} />
-          </label>
-        </div>
+        <label className="input-label">
+          <FormattedMessage id={label} />
+          <span>{icon && icon}</span>
+        </label>
       )}
-      <input
-        type={type}
-        className={className}
-        placeholder={placeholder}
-        id={id}
-        value={values}
-        name={name}
-        style={style}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        onClick={handleClick}
-        tabIndex={tabIndex}
-        error={touched && errors}
-        checked={checked}
-      />
+      <div className="input-group">
+        <input
+          type={type}
+          className={className}
+          placeholder={placeholder}
+          id={id}
+          value={values}
+          name={name}
+          style={style}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          onClick={handleClick}
+          tabIndex={tabIndex}
+          error={touched && errors}
+          checked={checked}
+        />
+      </div>
       {disableErrors ? null : <ErrorMessage errorMessage={errors} />}
     </StyledInputContainer>
   );
@@ -71,7 +72,7 @@ Input.propTypes = {
   style: PropTypes.object,
   iconIsActive: PropTypes.bool,
   iconClass: PropTypes.string,
-  iconType: PropTypes.object,
   checked: PropTypes.bool,
+  icon: PropTypes.element,
 };
 export default Input;

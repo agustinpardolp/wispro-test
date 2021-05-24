@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { DEVICES_MAX_WIDTH } from "../../constants";
 
-const StyledUsers = styled.section`
+const StyledUserContainer = styled.section`
   .home_benefits {
     padding: 2rem;
     margin-left: ${(props) => (props.marginLeft ? props.marginLeft : "5%")};
@@ -164,4 +164,4 @@ const StyledDivContainer = styled.div`
     font-size: 1.4rem;
   }
 `;
-export { StyledUsers, StyledHomeWrapper, StyledDataWrapper, StyledDivContainer };
+export { StyledUserContainer, StyledHomeWrapper, StyledDataWrapper, StyledDivContainer };

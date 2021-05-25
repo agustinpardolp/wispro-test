@@ -1,0 +1,42 @@
+:root {
+  --primary: #239fd8;
+  --primary-titles: #474448;
+  --hoverColor: #2681ac;
+  --backgroundHover: #ffffffe3;
+  --backgroundModal: #edf1f3;
+  --backGroundNeutral: #ffffff;
+  --primaryConfirm: #afcb07;
+  --primaryCancel: #ff5964;
+  --primaryFont: #060311;
+  --primaryFontReverse: #ffffffe3;
+  --inactiveColor: #e0e0e2;
+  --primaryInputBorder: #908b8be3;
+  --fontVar: "Fira Sans", sans-serif;
+  --white: #fff;
+}
+
+/* Normalizes margin, padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--fontVar);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Normalizes font-size for headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+
+table > .icon-td {
+  padding: 0.1rem;
+}

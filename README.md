@@ -6,12 +6,12 @@ This app is completely based on the ReactJS, React-Redux, Styled Components.
 
 In the project directory "/client", run:
 
-npm install: To install all the dependencies
+npm install: To install all the dependencies, and then
 npm start: To run the app in the development mode
 
 In the project directory "/server", run:
 
-npm install: To install all the dependencies
+npm install: To install all the dependencies, and then
 npm start: To run the socket server
 
 Runs the app in the development mode.\

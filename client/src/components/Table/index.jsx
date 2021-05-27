@@ -1,17 +1,13 @@
 import React from "react";
 import { useTable, useSortBy } from "react-table";
 import PropTypes from "prop-types";
-import { StyledTable, StyledTd, StyledTr } from "./styledComponents";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FormattedMessage } from "react-intl";
-import {
-  faTrashAlt,
-  faEdit,
-  faSortUp,
-  faSortDown,
-} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons";
 
-const Table = ({ columns, data, callBack, callBackEdit, callBackDelete }) => {
+import { StyledTable, StyledTd, StyledTr } from "./styledComponents";
+
+const Table = ({ columns, data, callBack, iconList }) => {
   const { getTableProps, headerGroups, rows, prepareRow } = useTable(
     {
       columns,
@@ -48,6 +44,9 @@ const Table = ({ columns, data, callBack, callBackEdit, callBackDelete }) => {
               <th>
                 <FormattedMessage id={"userTable.delete"} />
               </th>
+              <th>
+                <FormattedMessage id={"userTable.map"} />
+              </th>
             </tr>
           ))}
         </thead>
@@ -68,21 +67,18 @@ const Table = ({ columns, data, callBack, callBackEdit, callBackDelete }) => {
                         </StyledTd>
                       );
                     })}
-                    <StyledTd>
-                      <FontAwesomeIcon
-                        icon={faEdit}
-                        onClick={() => {
-                          console.log(row);
-                          callBackEdit(row.original);
-                        }}
-                      />
-                    </StyledTd>
-                    <StyledTd>
-                      <FontAwesomeIcon
-                        icon={faTrashAlt}
-                        onClick={() => callBackDelete(row.original)}
-                      />
-                    </StyledTd>
+                    {iconList.map((data) => {
+                      return (
+                        <StyledTd>
+                          <FontAwesomeIcon
+                            icon={data.icon}
+                            onClick={() => {
+                              data.callback(row.original);
+                            }}
+                          />
+                        </StyledTd>
+                      );
+                    })}
                   </StyledTr>
                 </>
               );
@@ -98,8 +94,7 @@ Table.propTypes = {
   columns: PropTypes.array,
   data: PropTypes.array,
   callBack: PropTypes.func,
-  callBackEdit: PropTypes.func,
-  callBackDelete: PropTypes.func,
+  icons: PropTypes.array,
 };
 
 export default Table;

@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from "react";
 import Modal from "../../components/Modal";
 import { modalReducer, initialState } from "./reducer";
+
 let ModalContext;
 const { Provider } = (ModalContext = createContext());
 

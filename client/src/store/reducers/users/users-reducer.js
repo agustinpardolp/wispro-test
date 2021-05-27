@@ -60,7 +60,11 @@ export const users = (
         status: REQUEST_STATUS.FAILED,
         error,
       };
-
+    case types.CLEAR_USERS_REQUEST:
+      return {
+        data: [],
+        status: REQUEST_STATUS.LOADED,
+      };
     default:
       return state;
   }

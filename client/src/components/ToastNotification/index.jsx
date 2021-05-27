@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 import { resetNotification } from "../../store/actions/notificationActions/";
 import { StyledNotification } from "./styledComponents";
 import { SideAnimation } from "../../utils/animations";
 
 const ToastNotification = ({ message, msgType, resetNotification }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     if (message) {
       handlerOpenToast();
@@ -67,6 +70,12 @@ export const mapStateToProps = (state) => {
 };
 export const mapDispatchToProps = {
   resetNotification,
+};
+
+ToastNotification.propTypes = {
+  message: PropTypes.string,
+  msgType: PropTypes.string,
+  resetNotification: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToastNotification);

@@ -26,7 +26,7 @@ const validationSchema = yup.object().shape({
     .min(7, "userEdition.dniErrorMinlength")
     .matches(REGEX.DNI_REGEX, "userEdition.dniError")
 });
-// AIzaSyAn079jO06mkz9gDOq2qETfuF-nta07b0g
+
 //formik validations
 const EditUser = withFormik({
   validateOnChange: true,
@@ -44,7 +44,9 @@ const EditUser = withFormik({
       data: { dni },
     } = props;
     props.handleAsyncConfirm(dni, value).then((res) => {
+      console.log(props)
       props.posResponse();
+      props.clearFilters()
       props.onClose({ type: "hide" });
     });
   },

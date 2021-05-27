@@ -1,7 +1,8 @@
 import React from "react";
-import { FormattedMessage } from "react-intl";
-import { StyledWrapper, StyledTitle } from "./styled-components";
 import PropTypes from "prop-types";
+import { FormattedMessage } from "react-intl";
+
+import { StyledWrapper, StyledTitle } from "./styled-components";
 
 const ViewWrapper = ({ title = "", children }) => {
   return (
@@ -13,6 +14,7 @@ const ViewWrapper = ({ title = "", children }) => {
     </StyledWrapper>
   );
 };
+
 ViewWrapper.propTypes = {
   title: PropTypes.string,
   children: PropTypes.element,

@@ -1,5 +1,6 @@
 import React from "react";
 import { Spinner as SpinnerComponent } from "react-bootstrap";
+
 import { StyledSpinnerContainer } from "./styled-components";
 
 const Spinner = () => {

@@ -1,9 +1,9 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import { FormattedMessage, useIntl } from "react-intl";
-import { StyledSelectContainer } from "./styled-components";
 import PropTypes from "prop-types";
+import { FormattedMessage, useIntl } from "react-intl";
 
+import { StyledSelectContainer } from "./styled-components";
 const Select = ({
   options,
   title,

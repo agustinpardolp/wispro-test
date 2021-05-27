@@ -30,6 +30,7 @@
   "userTable.reset": "Limpiar filtros",
   "userTable.edit": "Editar",
   "userTable.delete": "Eliminar",
+  "userTable.map": "Mapa",
 
   "userFilter.title": "Filtrar por",
   "userFilter.select": "Seleccionar...",
@@ -80,5 +81,7 @@
   "userEdition.surnameRequired": "Campo apellido es requerido",
   "userEdition.emailRequired": "Campo email es requerido",
   "userEdition.addressRequired": "Campo direcciòn es requerido",
-  "userEdition.dniRequired": "Campo dni es requerido"
+  "userEdition.dniRequired": "Campo dni es requerido",
+
+  "userGeolocalization.tooltip": "Tu ubicacíon"
 }

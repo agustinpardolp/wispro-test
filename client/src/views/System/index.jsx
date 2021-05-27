@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import { FormattedMessage, useIntl } from "react-intl";
+
 import {
   StyledChartContainer,
   StyledMainContainer,
   StyledValue,
-  StyledTitle,
 } from "./styled-components";
 import BarChart from "./components/BarChart";
 import SystemLineChart from "./components/SystemLineChart";
 import ViewWrapper from "../../components/ViewWrapper";
-import { connectionOptions } from "./components/constants";
+import { connectionOptions, SOCKET_URL, SOCKET_KEYS } from "./constants";
 
 const System = () => {
   const intl = useIntl();
@@ -25,16 +25,16 @@ const System = () => {
   };
 
   useEffect(() => {
-    const socket = io("http://localhost:4000", connectionOptions);
-    socket.on("connection");
-    socket.on("cpu", (data) => {
+    const socket = io(SOCKET_URL, connectionOptions);
+    socket.on(SOCKET_KEYS.connection);
+    socket.on(SOCKET_KEYS.cpu, (data) => {
       setCpu(data);
     });
-    socket.on("memory", (data) => {
+    socket.on(SOCKET_KEYS.memory, (data) => {
       let memory = randomGenrator(data);
       setMemory(memory);
     });
-    socket.on("disk", (data) => {
+    socket.on(SOCKET_KEYS.disk, (data) => {
       setDisk(data);
     });
     socket.on("seconds", (data) => {
@@ -46,7 +46,7 @@ const System = () => {
       ];
       setSeconds(transformArray);
     });
-    socket.on("network", (data) => {
+    socket.on(SOCKET_KEYS.network, (data) => {
       let networkFirst = randomGenrator(data);
       let networkSecond = randomGenrator(data);
       let networkThird = randomGenrator(data);

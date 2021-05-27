@@ -2,7 +2,6 @@ import {  app } from "../config/fireBaseConfig";
 
 const login = async (username, password, rememberUser) => {
   let response = await app.auth().signInWithEmailAndPassword(username, password);
-  console.log(response);
   if (response && response.user.uid) {
     if (rememberUser) {
       localStorage.setItem("token_data", JSON.stringify(response.user.uid));

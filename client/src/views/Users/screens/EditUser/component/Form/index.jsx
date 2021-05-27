@@ -1,10 +1,12 @@
 import React from "react";
-
 import { Form, Col } from "react-bootstrap";
+import PropTypes from "prop-types";
+
 import Button from "../../../../../../components/Button";
-import { StyledButtonGroup } from "./styled-components";
 import Input from "../../../../../../components/Input";
 import { errorsFormHandler } from "../../../../../../utils";
+import { StyledButtonGroup } from "./styled-components";
+
 const EditUserForm = ({
   values,
   handleChange,
@@ -85,6 +87,18 @@ const EditUserForm = ({
       </StyledButtonGroup>
     </Form>
   );
+};
+
+
+EditUserForm.propTypes = {
+  name: PropTypes.string,
+  surname: PropTypes.string,
+  accessTimes: PropTypes.array,
+  values: PropTypes.object,
+  handleChange: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  onClose: PropTypes.func,
+  errors: PropTypes.object
 };
 
 export default EditUserForm;

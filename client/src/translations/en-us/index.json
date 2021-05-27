@@ -30,6 +30,7 @@
   "userTable.reset": "Clean filters",
   "userTable.edit": "Edit",
   "userTable.delete": "Delete",
+  "userTable.map": "Map",
 
   "userFilter.title": "Filter by",
   "userFilter.select": "Select...",
@@ -80,6 +81,8 @@
   "userEdition.surnameRequired": "Surname is required",
   "userEdition.emailRequired": "Email is required",
   "userEdition.addressRequired": "Address is required",
-  "userEdition.dniRequired": "Dni is required"
+  "userEdition.dniRequired": "Dni is required",
+
+  "userGeolocalization.tooltip": "Your location"
 }
 

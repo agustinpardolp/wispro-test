@@ -2,28 +2,57 @@ import React, { useEffect, useState, useContext, useCallback } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { useIntl } from "react-intl";
-import Table from "../../components/Table";
 import {
-  fetchUsers,
   deleteUser,
   updateUser,
+  fetchUsers,
+  clearUsers,
 } from "../../store/actions/usersActions";
 import { StyledUserContainer, StyledDataWrapper } from "./styled-components";
-import { resetOptionHandler, MODAL_TYPE, columnHandler } from "./constants";
-import Submenu from "./components/Submenu";
-import AccessInfo from "./screens/AccessInfo";
+import {
+  resetOptionHandler,
+  MODAL_TYPE,
+  columnHandler,
+  iconTableHandler,
+} from "./constants";
+import {
+  faTrashAlt,
+  faEdit,
+  faMapMarkedAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import { ModalContext } from "../../context/ModalContext";
+import Table from "../../components/Table";
+import Submenu from "./components/Submenu";
+import Geolocation from "./components/Geolocation";
+import AccessInfo from "./screens/AccessInfo";
 import EditUser from "./screens/EditUser";
 
-export const Users = ({ fetchUsers, userList, deleteUser, updateUser }) => {
+export const Users = ({
+  fetchUsers,
+  userList,
+  deleteUser,
+  updateUser,
+  clearUsers,
+}) => {
   const [filteredList, setFilteredList] = useState([]);
   const [dataTable, setDataTable] = useState(userList);
   const [option, setOption] = useState("");
+  const [geolocation, setGeolocation] = useState({});
+
   let { dispatch } = useContext(ModalContext);
   const intl = useIntl();
 
+  const clearFilters = () => {
+    setFilteredList([]);
+    setDataTable([]);
+    setOption("");
+  };
+
   useEffect(() => {
     fetchUsers();
+    return () => {
+      clearUsers();
+    };
   }, [dataTable, fetchUsers]);
 
   const handleSelectOption = useCallback(
@@ -46,12 +75,6 @@ export const Users = ({ fetchUsers, userList, deleteUser, updateUser }) => {
     [userList]
   );
 
-  const clearFilters = () => {
-    setFilteredList([]);
-    setDataTable([]);
-    setOption("");
-  };
-
   const handleSelectFilter = useCallback(
     (e) => {
       let data = userList.filter((user) => user[option] === e.target.value);
@@ -69,7 +92,10 @@ export const Users = ({ fetchUsers, userList, deleteUser, updateUser }) => {
         message: "userModalDelete.subtitle",
         open: true,
         handleAsyncConfirm: deleteUser,
-        handleConfirm: () => dispatch({ type: "hide" }),
+        handleConfirm: () => {
+          clearFilters();
+          return dispatch({ type: "hide" });
+        },
         posResponse: fetchUsers,
         data: data.dni,
       },
@@ -92,6 +118,7 @@ export const Users = ({ fetchUsers, userList, deleteUser, updateUser }) => {
             posResponse={fetchUsers}
             onClose={dispatch}
             intl={intl}
+            clearFilters={clearFilters}
           />
         ),
       },
@@ -113,6 +140,21 @@ export const Users = ({ fetchUsers, userList, deleteUser, updateUser }) => {
     });
   };
 
+  const handleMapLocation = (data) => {
+    setGeolocation(data.coordinates);
+  };
+
+  const onRenderTableIcons = () => {
+    let iconList = iconTableHandler(
+      faTrashAlt,
+      faEdit,
+      faMapMarkedAlt,
+      handleDelete,
+      handleEdit,
+      handleMapLocation
+    );
+    return iconList;
+  };
   return (
     <>
       <StyledUserContainer>
@@ -129,6 +171,11 @@ export const Users = ({ fetchUsers, userList, deleteUser, updateUser }) => {
             callBackDelete={handleDelete}
             callBackEdit={handleEdit}
             callBack={handleAccessInfo}
+            iconList={onRenderTableIcons()}
+          />
+          <Geolocation
+            positions={geolocation}
+            tooltipLabel="userGeolocalization.tooltip"
           />
         </StyledDataWrapper>
       </StyledUserContainer>
@@ -150,6 +197,7 @@ export const mapDispatchToProps = {
   fetchUsers,
   deleteUser,
   updateUser,
+  clearUsers,
 };
 
 Users.propTypes = {

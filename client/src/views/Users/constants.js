@@ -1,48 +1,18 @@
-//  export const tableColumns = [
-//     {
-//       id: "1",
-//       styles: { fontWeight: "bold" },
-//       name: "userTable.name",
-//       dataField: "name",
-//       // isSorted: true,
-//     },
-//     {
-//       id: "2",
-//       styles: { fontWeight: "bold" },
-//       name: "userTable.surname",
-//       dataField: "surname",
-//       // isSorted: true,
-//     },
-//     {
-//       id: "3",
-//       styles: { fontWeight: "bold" },
-//       name: "userTable.address",
-//       dataField: "address",
-//       // isSorted: true,
-//     },
-//     {
-//       id: "4",
-//       styles: { fontWeight: "bold" },
-//       name: "userTable.email",
-//       dataField: "email",
-//       // isSorted: true,
-//     },
-//     {
-//       id: "5",
-//       styles: { fontWeight: "bold" },
-//       name: "userTable.creationDate",
-//       dataField: "creationDate",
-//       // isSorted: true,
-//     },
-//     ({
-//       id: "6",
-//       styles: { fontWeight: "bold" },
-//       name:  "userTable.dni",
-//       dataField: "dni",
-//       // isSorted: true,
-
-//     })
-//   ];
+export const iconTableHandler = (
+  iconDelete,
+  iconEdit,
+  iconMap,
+  deleteCallback,
+  editCallback,
+  locationCallback
+) => {
+  const icons = [
+    { icon: iconDelete, callback: deleteCallback },
+    { icon: iconEdit, callback: editCallback },
+    { icon: iconMap, callback: locationCallback },
+  ];
+  return icons;
+};
 
 export const columnHandler = (intl) => {
   const tableColumns = [

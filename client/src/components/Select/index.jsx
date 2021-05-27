@@ -34,13 +34,13 @@ const Select = ({
               options.map((option) => {
                 const label = disableTranslation
                   ? option.name
-                  : intl.messages[option.name];
+                  : intl.messages[option.Header];
                 return (
                   <option
                     key={option.id}
-                    value={option.dataField}
+                    value={option.accessor}
                   >
-                    {label}
+                    {option.Header}
                   </option>
                 );
               })}

@@ -1,11 +1,7 @@
-import React, {
-  useEffect,
-  useState,
-  useContext,
-  useCallback,
-} from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { useIntl } from "react-intl";
 import Table from "../../components/Table";
 import {
   fetchUsers,
@@ -13,7 +9,7 @@ import {
   updateUser,
 } from "../../store/actions/usersActions";
 import { StyledUserContainer, StyledDataWrapper } from "./styled-components";
-import { tableColumns, resetOption, MODAL_TYPE } from "./constants";
+import { resetOptionHandler, MODAL_TYPE, columnHandler } from "./constants";
 import Submenu from "./components/Submenu";
 import AccessInfo from "./screens/AccessInfo";
 import { ModalContext } from "../../context/ModalContext";
@@ -24,6 +20,7 @@ export const Users = ({ fetchUsers, userList, deleteUser, updateUser }) => {
   const [dataTable, setDataTable] = useState(userList);
   const [option, setOption] = useState("");
   let { dispatch } = useContext(ModalContext);
+  const intl = useIntl();
 
   useEffect(() => {
     fetchUsers();
@@ -31,14 +28,17 @@ export const Users = ({ fetchUsers, userList, deleteUser, updateUser }) => {
 
   const handleSelectOption = useCallback(
     (e) => {
-      if (e.target.value === resetOption[0].dataField) {
+      if (
+        e.target.value === resetOptionHandler(intl)[0].accessor ||
+        e.target.value === intl.formatMessage({ id: "userFilter.select" })
+      ) {
         clearFilters();
       } else {
         setOption(e.target.value);
         let optionList =
           userList &&
           userList.map((user, i) => {
-            return { name: user[e.target.value], id: i };
+            return { Header: user[e.target.value], id: i };
           });
         setFilteredList(optionList);
       }
@@ -91,6 +91,7 @@ export const Users = ({ fetchUsers, userList, deleteUser, updateUser }) => {
             handleAsyncConfirm={updateUser}
             posResponse={fetchUsers}
             onClose={dispatch}
+            intl={intl}
           />
         ),
       },
@@ -119,10 +120,11 @@ export const Users = ({ fetchUsers, userList, deleteUser, updateUser }) => {
           filteredList={filteredList}
           handleSelectOption={handleSelectOption}
           handleSelectFilter={handleSelectFilter}
+          intl={intl}
         />
         <StyledDataWrapper>
           <Table
-            columns={tableColumns}
+            columns={columnHandler(intl)}
             data={dataTable.length ? dataTable : userList}
             callBackDelete={handleDelete}
             callBackEdit={handleEdit}

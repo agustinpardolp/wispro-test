@@ -25,7 +25,7 @@ const Menu = ({ display, token, openModal }) => {
         </li>
         <li className="navbar-button-container">
           {hasToken && (
-            <Button label={"Logout"} variant={"logout"} onClick={openModal} />
+            <Button label={"button.logout"} variant={"logout"} onClick={openModal} />
           )}
         </li>
       </StyledMenu>

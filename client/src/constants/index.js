@@ -3,6 +3,9 @@
 export const REGEX = {
   NUMERIC_PASSWORD: /^[0-9]+$/,
   EMAIL_REGEX_SCHEMA: /^(?=.{1,254}$)((?=.{1,64}@)[ñÑa-zA-Z0-9-`~!@#$%^&*?/()_|+\-=;:'"´¨,.<>\{\}\[\]\\\/]+\.[A-Za-z]{2,4},?)$/,
+  NAME_REGEX: /^([a-zA-Z ]){2,30}$/,
+  SURNAME_REGEX: /^[a-z ,.'-]+$/,
+  DNI_REGEX: /^[0-9]{8}$/
 };
 export const REQUEST_STATUS = {
   NOT_LOADED: "NOT_LOADED",

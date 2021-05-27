@@ -1,6 +1,7 @@
 {
   "navbar.title": "Wispro Challenge",
   "button.login": "Login",
+  "button.logout": "Cerrar sesión",
   "button.enter": "Ingresar",
   "button.confirm": "Confirmar",
   "button.cancel": "Cancelar",
@@ -40,7 +41,7 @@
   "userModalDelete.subtitle": "¿Estás seguro que deseas eliminar el usuario?",
 
   "barChart.title": "Cantidad de ingresos ultima semana",
-  "barChart.subtitle": "Informacion de sobre ingresos a la plataforma por usuario",
+  "barChart.subtitle": "Informacion sobre ingresos a la plataforma por usuario",
   "barChart.label": "Cantidad de ingresos diarios",
   "barChart.monday": "Lunes",
   "barChart.tuesday": "Martes",
@@ -62,5 +63,22 @@
   "barChartDatatUsage.title": "Consumo de internet",
 
   "userListSubmenu.tab": "Listado de usuarios",
-  "userSystemSubmenu.tab": "Informacion del sistema"
+  "userSystemSubmenu.tab": "Informacion del sistema",
+
+  "userLogout.title": "Cerrar sesión",
+  "userLogout.message": "¿Está seguro que desea salir?",
+
+  "userEdition.nameError": "Caracter inválido, ingresar letras",
+  "userEdition.surnameError": "Caracter inválido, ingresar letras",
+  "userEdition.emailError": "Formato de email incorrecto",
+  "userEdition.addressError": "Caracter inválido",
+  "userEdition.dniError": "Caracter inválido, ingresar números",
+  "userEdition.dniErrorlength": "Maximo 8 caracteres",
+  "userEdition.dniErrorMinlength": "Mìnimo 7 caracteres",
+
+  "userEdition.nameRequired": "Campo nombre es requerido",
+  "userEdition.surnameRequired": "Campo apellido es requerido",
+  "userEdition.emailRequired": "Campo email es requerido",
+  "userEdition.addressRequired": "Campo direcciòn es requerido",
+  "userEdition.dniRequired": "Campo dni es requerido"
 }

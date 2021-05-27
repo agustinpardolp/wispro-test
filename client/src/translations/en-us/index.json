@@ -1,6 +1,7 @@
 {
   "navbar.title": "Wispro Challenge",
   "button.login": "Login",
+  "button.logout": "Logout",
   "button.enter": "Enter",
   "button.confirm": "Confirm",
   "button.cancel": "Cancel",
@@ -62,6 +63,23 @@
   "barChartDiskUsage.title": "Disk usage",
 
   "userListSubmenu.tab": "Users list",
-  "userSystemSubmenu.tab": "System information"
+  "userSystemSubmenu.tab": "System information",
+
+  "userLogout.title": "Sign out",
+  "userLogout.message": "Are you sure you want to leave?",
+
+  "userEdition.nameError": "Only string values are allowed",
+  "userEdition.surnameError": "Only string values are allowed",
+  "userEdition.emailError": "Only email format is allowed",
+  "userEdition.addressError": "Only valid characters are allowed",
+  "userEdition.dniError": "Only numeric characters are allowed",
+  "userEdition.dniErrorlength": "Max length 8 characters allowed",
+  "userEdition.dniErrorMinlength": "Must be at least 7 characters",
+ 
+  "userEdition.nameRequired": "Name is required",
+  "userEdition.surnameRequired": "Surname is required",
+  "userEdition.emailRequired": "Email is required",
+  "userEdition.addressRequired": "Address is required",
+  "userEdition.dniRequired": "Dni is required"
 }
 

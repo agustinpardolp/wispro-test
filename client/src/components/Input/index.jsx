@@ -5,9 +5,9 @@ import ErrorMessage from "../../components/ErrorMessage";
 import { StyledInputContainer } from "./styled-components";
 
 const Input = ({
-  values,
+  value,
   errors,
-  label,
+  label = 'default',
   disableLabel,
   handleChange,
   handleClick,
@@ -38,7 +38,7 @@ const Input = ({
           className={className}
           placeholder={placeholder}
           id={id}
-          value={values}
+          value={value}
           name={name}
           style={style}
           onChange={handleChange}

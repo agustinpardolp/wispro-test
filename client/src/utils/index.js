@@ -4,3 +4,7 @@ export const createActionTypes = (key, baseAction) => ({
   [`${baseAction}_SUCCESS`]: `${key}/${baseAction}_SUCCESS`,
   [`${baseAction}_FAILURE`]: `${key}/${baseAction}_FAILURE`,
 });
+
+export const errorsFormHandler = (errors) => {
+  return Object.entries(errors).length > 0;
+};

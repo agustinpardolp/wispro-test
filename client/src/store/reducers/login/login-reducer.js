@@ -3,7 +3,7 @@ import { REQUEST_STATUS } from "../../../constants/index";
 
 export const login = (
   state = {
-    user: {},
+    user: { token: null } ,
     status: REQUEST_STATUS.NOT_LOADED,
     error: "",
   },
@@ -15,7 +15,7 @@ export const login = (
     case types.LOGIN_USER_SUCCESS:
       return {
         ...state,
-        user: user,
+        user: { token: user.uid },
         status: REQUEST_STATUS.LOADED,
       };
     case types.LOGIN_USER_FAILURE:
@@ -26,7 +26,7 @@ export const login = (
       };
     case types.LOGOUT_USER_SUCCESS:
       return {
-        token: {},
+        user: { token: null },
         status: REQUEST_STATUS.LOADED,
       };
 

@@ -3,99 +3,85 @@ import React from "react";
 import { Form, Col } from "react-bootstrap";
 import Button from "../../../../../../components/Button";
 import { StyledButtonGroup } from "./styled-components";
-import { FormattedMessage } from "react-intl";
-
+import Input from "../../../../../../components/Input";
+import { errorsFormHandler } from "../../../../../../utils";
 const EditUserForm = ({
   values,
   handleChange,
-  handleBlur,
   handleSubmit,
   onClose,
+  errors,
 }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Row>
-        <Form.Group as={Col} >
-          <Form.Label>
-            <FormattedMessage id={"userTable.name"} />
-          </Form.Label>
-          <Form.Control
+        <Form.Group as={Col}>
+          <Input
             type="text"
-            placeholder="Name"
             name="name"
             id="name"
-            handleBlur={handleBlur}
+            label="userTable.name"
             value={values.name}
-            onChange={handleChange}
+            handleChange={handleChange}
+            errors={errors.name}
           />
         </Form.Group>
-        <Form.Group as={Col} >
-          <Form.Label>
-            <FormattedMessage id={"userTable.surname"} />
-          </Form.Label>
-          <Form.Control
+        <Form.Group as={Col}>
+          <Input
             type="text"
-            placeholder="Surname"
+            label="userTable.surname"
             name="surname"
             id="surname"
-            handleBlur={handleBlur}
             value={values.surname}
-            onChange={handleChange}
+            handleChange={handleChange}
+            errors={errors.surname}
           />
         </Form.Group>
-        <Form.Group as={Col} >
-          <Form.Label>
-            <FormattedMessage id={"userTable.address"} />
-          </Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Address"
+        <Form.Group as={Col}>
+          <Input
             name="address"
-            id="address"
-            handleBlur={handleBlur}
+            label="userTable.address"
+            handleChange={handleChange}
+            type="text"
             value={values.address}
-            onChange={handleChange}
+            errors={errors.address}
           />
         </Form.Group>
-      </Form.Row>
-      <Form.Row>
-        <Form.Group as={Col} >
-          <Form.Label>
-            <FormattedMessage id={"userTable.email"} />
-          </Form.Label>
-          <Form.Control
+        <Form.Group as={Col}>
+          <Input
             type="email"
-            placeholder="Enter email"
+            label="userTable.email"
             name="email"
             id="email"
-            handleBlur={handleBlur}
             value={values.email}
-            onChange={handleChange}
+            handleChange={handleChange}
+            errors={errors.email}
           />
         </Form.Group>
-        <Form.Group as={Col} >
-          <Form.Label>
-            <FormattedMessage id={"userTable.dni"} />
-          </Form.Label>
-          <Form.Control
-            placeholder="dni"
+        <Form.Group as={Col}>
+          <Input
+            label="userTable.dni"
             type="text"
             name="dni"
             id="dni"
-            handleBlur={handleBlur}
             value={values.dni}
-            onChange={handleChange}
+            handleChange={handleChange}
+            errors={errors.dni}
           />
         </Form.Group>
       </Form.Row>
       <StyledButtonGroup>
         <Button
-          onClick={()=> onClose({ type: "hide" })}
+          onClick={() => onClose({ type: "hide" })}
           type="text"
           label="button.cancel"
           variant="cancel"
         />
-        <Button type="submit" label="button.confirm" variant="confirm" />
+        <Button
+          label={"button.enter"}
+          type={!errorsFormHandler(errors) ? "submit" : "text"}
+          variant={!errorsFormHandler(errors) ? "confirm" : "disabled"}
+        />
       </StyledButtonGroup>
     </Form>
   );

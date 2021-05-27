@@ -2,10 +2,10 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-const PrivateRoute = ({ user, component: Component, ...rest }) => {
+const PrivateRoute = ({ token, component: Component, ...rest }) => {
   const checkAuth = () => {
     let tokenData = JSON.parse(localStorage.getItem("token_data"));
-    if (tokenData || user.uid) {
+    if (tokenData || token) {
       return true;
     } else return false;
   };
@@ -23,11 +23,15 @@ const PrivateRoute = ({ user, component: Component, ...rest }) => {
 };
 export const mapStateToProps = (state) => {
   const {
-    login: { user },
+    login: {
+      user: { token },
+    },
   } = state;
+  console.log(state);
 
   return {
-    user,
+    token: token,
   };
 };
+
 export default connect(mapStateToProps, null)(PrivateRoute);

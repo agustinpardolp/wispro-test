@@ -11,11 +11,11 @@ function GenericModal({
   title,
   message,
   handleAsyncConfirm,
+  handleConfirm,
   posResponse,
   data,
   dispatch,
 }) {
-
   const onAsyncConfirm = async (data) => {
     let response = await handleAsyncConfirm(data);
     response && posResponse();
@@ -23,7 +23,12 @@ function GenericModal({
   };
 
   const onHandleClose = () => {
-    dispatch({ type: "hide" });
+    if (handleConfirm) {
+      handleConfirm();
+      dispatch({ type: "hide" });
+    } else {
+      dispatch({ type: "hide" });
+    }
   };
 
   return (
@@ -49,7 +54,7 @@ function GenericModal({
             label="button.confirm"
             variant="confirm"
             onClick={
-              onAsyncConfirm
+              handleAsyncConfirm
                 ? () => onAsyncConfirm(data)
                 : () => onHandleClose()
             }

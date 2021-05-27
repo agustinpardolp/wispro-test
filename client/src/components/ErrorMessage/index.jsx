@@ -1,15 +1,15 @@
 import React from "react";
-import styled from "styled-components";
 import PropTypes from "prop-types";
-const StyledError = styled.span`
-  display: block;
-  color: red;
-  margin-top: 15px;
-  font-size: 14px;
-`;
+import { FormattedMessage } from "react-intl";
 
-const ErrorMessage = ({ errorMessage }) => {
-  return <StyledError>{errorMessage && errorMessage}</StyledError>;
+import { StyledError } from "./styled-components";
+
+const ErrorMessage = ({ errorMessage= " " }) => {
+  return (
+    <StyledError>
+      <FormattedMessage id={errorMessage} />
+    </StyledError>
+  );
 };
 ErrorMessage.propTypes = {
   errorMessage: PropTypes.string,

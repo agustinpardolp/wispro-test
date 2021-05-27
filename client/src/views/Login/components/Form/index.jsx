@@ -2,21 +2,22 @@ import React, { useCallback } from "react";
 import { FormattedMessage } from "react-intl";
 import PropTypes from "prop-types";
 
-import { StyledLogin, StyledCheckContainer, StyledButtonContainer } from "./styled-components";
+import {
+  StyledLogin,
+  StyledCheckContainer,
+  StyledButtonContainer,
+} from "./styled-components";
 import Button from "../../../../components/Button";
 import Input from "../../../../components/Input";
+import { errorsFormHandler } from "../../../../utils";
 
 const LoginForm = ({ values, handleChange, handleSubmit, errors }) => {
-  const errorsFormHandler = useCallback(() => {
-    return Object.entries(errors).length > 0;
-  }, [errors]);
-
   const handleLoginSubmit = useCallback(
     (e) => {
       e.preventDefault();
       !errorsFormHandler() && handleSubmit();
     },
-    [errorsFormHandler, handleSubmit]
+    [handleSubmit]
   );
   return (
     <StyledLogin>
@@ -30,7 +31,7 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors }) => {
             label={"login.user"}
             handleChange={handleChange}
             type={"text"}
-            values={values.email}
+            value={values.email}
             errors={errors.email}
           />
           <Input
@@ -38,10 +39,10 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors }) => {
             label={"login.password"}
             handleChange={handleChange}
             type={"password"}
-            values={values.password}
+            value={values.password}
             errors={errors.password}
           />
-            <StyledCheckContainer>
+          <StyledCheckContainer>
             <p>
               <FormattedMessage id="login.session" />
             </p>
@@ -53,12 +54,12 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors }) => {
             />
           </StyledCheckContainer>
           <StyledButtonContainer>
-          <Button
-            label={"button.enter"}
-            type={!errorsFormHandler() ? "submit" : "text"}
-            variant={!errorsFormHandler() ? "confirm" : "disabled"}
-          />
-        </StyledButtonContainer>
+            <Button
+              label={"button.enter"}
+              type={!errorsFormHandler() ? "submit" : "text"}
+              variant={!errorsFormHandler() ? "confirm" : "disabled"}
+            />
+          </StyledButtonContainer>
         </div>
       </form>
     </StyledLogin>

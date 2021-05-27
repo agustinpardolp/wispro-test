@@ -8,4 +8,8 @@ Divider.propTypes = {
   disableShadow: PropTypes.bool,
 };
 
+Divider.propTypes = {
+  disableShadow: PropTypes.bool,
+};
+
 export default Divider;

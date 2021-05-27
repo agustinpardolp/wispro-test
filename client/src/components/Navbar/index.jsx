@@ -1,46 +1,55 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { StyledNavbar } from "./styled-components";
-import { useModal } from "../../hooks";
 import { logout } from "../../store/actions/loginActions";
-import Modal from "../Modal";
 import { FormattedMessage } from "react-intl";
 import Menu from "./Menu";
+import { ModalContext } from "../../context/ModalContext";
+import { MODAL_TYPE } from "./constants";
 
-export const Navbar = ({ location, history, user, logout }) => {
-  const { showModal, hideModal } = useModal(false);
+export const Navbar = ({  history, token, logout }) => {
+  let { dispatch } = useContext(ModalContext);
   let tokenData = JSON.parse(localStorage.getItem("token_data"));
   const handleLogout = useCallback(() => {
-    hideModal();
     logout();
     history.push("/login");
-  }, [hideModal, history, logout]);
+  }, [history, logout]);
 
+  const handleDelete = (data) => {
+    dispatch({
+      type: "show",
+      modalType: MODAL_TYPE.LOGOUT,
+      modalProps: {
+        title: "userLogout.title",
+        message: "userLogout.message",
+        open: true,
+        handleConfirm: handleLogout,
+        data: data.dni,
+      },
+    });
+  };
+console.log(tokenData, token)
   return (
     <>
-      <StyledNavbar>
+      <StyledNavbar bg="dark">
         <StyledNavbar.Brand>
           <FormattedMessage id="navbar.title" />
         </StyledNavbar.Brand>
-        <Menu token={tokenData || user.uid}/>
+        <Menu token={tokenData || token} openModal={handleDelete} />
       </StyledNavbar>
-      <Modal
-        show={showModal}
-        onConfirm={handleLogout}
-        onHide={hideModal}
-        label="modal.message"
-      />
     </>
   );
 };
 export const mapStateToProps = (state) => {
   const {
-    login: { user },
+    login: {
+      user: { token },
+    },
   } = state;
   return {
-    user,
+    token: token,
   };
 };
 

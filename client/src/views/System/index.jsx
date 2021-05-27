@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useIntl } from "react-intl";
 import { io } from "socket.io-client";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import {
   StyledChartContainer,
   StyledMainContainer,
   StyledValue,
+  StyledTitle,
 } from "./styled-components";
 import BarChart from "./components/BarChart";
 import SystemLineChart from "./components/SystemLineChart";
+import ViewWrapper from "../../components/ViewWrapper";
 import { connectionOptions } from "./components/constants";
 
 const System = () => {
@@ -80,34 +81,36 @@ const System = () => {
   };
 
   return (
-    <StyledMainContainer>
-      <StyledChartContainer>
-        <h3>
-          <FormattedMessage id={"barChartCpuUsage.title"} />
-        </h3>
-        <StyledValue>
-          {cpu} <label>%</label>
-        </StyledValue>
-      </StyledChartContainer>
-      <StyledChartContainer>
-        <SystemLineChart
-          labels={DataUsage.labelsDataUsage}
-          title={DataUsage.title}
-          barColor={DataUsage.barColor}
-          borderColor={DataUsage.borderColor}
-          values={network}
-        />
-      </StyledChartContainer>
-      <StyledChartContainer>
-        <BarChart
-          labels={DataMemoryUsage.labelsDataUsage}
-          title={DataMemoryUsage.title}
-          barColor={DataMemoryUsage.barColor}
-          borderColor={DataMemoryUsage.borderColor}
-          values={[memory, disk]}
-        />
-      </StyledChartContainer>
-    </StyledMainContainer>
+    <ViewWrapper title="userSystemSubmenu.tab">
+      <StyledMainContainer>
+        <StyledChartContainer>
+          <h3>
+            <FormattedMessage id={"barChartCpuUsage.title"} />
+          </h3>
+          <StyledValue>
+            {cpu} <label>%</label>
+          </StyledValue>
+        </StyledChartContainer>
+        <StyledChartContainer>
+          <SystemLineChart
+            labels={DataUsage.labelsDataUsage}
+            title={DataUsage.title}
+            barColor={DataUsage.barColor}
+            borderColor={DataUsage.borderColor}
+            values={network}
+          />
+        </StyledChartContainer>
+        <StyledChartContainer>
+          <BarChart
+            labels={DataMemoryUsage.labelsDataUsage}
+            title={DataMemoryUsage.title}
+            barColor={DataMemoryUsage.barColor}
+            borderColor={DataMemoryUsage.borderColor}
+            values={[memory, disk]}
+          />
+        </StyledChartContainer>
+      </StyledMainContainer>
+    </ViewWrapper>
   );
 };
 

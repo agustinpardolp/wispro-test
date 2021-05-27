@@ -1,8 +1,14 @@
-import users from "../actions/loginActions/types";
+import user from "../actions/loginActions/types";
+import users from "../actions/usersActions/types";
 
 export const successMessages = {
-  [users.LOGIN_USER_SUCCESS]: "Sesion iniciada con exito.",
+  [user.LOGIN_USER_SUCCESS]: "Sesion iniciada con éxito.",
+  [users.UPDATE_USERS_SUCCESS]: "Usuario editado con éxito",
+  [users.DELETE_USERS_SUCCESS]: "Usuario eliminadio con éxito.",
 };
 export const failureMessages = {
-  [users.LOGIN_USER_FAILURE]: "Error al iniciar sesion.",
+  [user.LOGIN_USER_FAILURE]: "Error al iniciar sesion.",
+  [users.UPDATE_USERS_FAILURE]: "Error al editar el usuario",
+  [users.DELETE_USERS_FAILURE]: "Error al eliminar el usuario",
 };
+

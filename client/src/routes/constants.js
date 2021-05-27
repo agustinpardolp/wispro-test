@@ -1,6 +1,6 @@
 export const routes = {
   any: "/*",
-  login: "login",
+  login: "/login",
   users: "/users",
   system: "/system-performance",
 };

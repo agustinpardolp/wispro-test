@@ -4,7 +4,6 @@ import { showNotification } from "../actions/notificationActions/index";
 //middleware to intercept the request status (succesfull or failed) and trigger a toast notificacion
 const toastMiddleware = (state) => (next) => (action) => {
   const { type } = action;
-
   if (type.match("SUCCESS")) {
     if (successMessages[type]) {
       state.dispatch(showNotification(successMessages[type], "success"));

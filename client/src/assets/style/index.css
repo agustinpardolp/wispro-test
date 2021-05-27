@@ -6,6 +6,7 @@
   --backgroundModal: #edf1f3;
   --backGroundNeutral: #ffffff;
   --primaryConfirm: #afcb07;
+  --ligthPrimaryConfirm: #aecb07c7;
   --primaryCancel: #ff5964;
   --primaryFont: #060311;
   --primaryFontReverse: #ffffffe3;
@@ -13,6 +14,7 @@
   --primaryInputBorder: #908b8be3;
   --fontVar: "Fira Sans", sans-serif;
   --white: #fff;
+  --ligthBackground: #84caebb2;
 }
 
 /* Normalizes margin, padding */
@@ -39,4 +41,21 @@ h6 {
 
 table > .icon-td {
   padding: 0.1rem;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: var(--white);
+}
+
+thead th {
+  background-color: var(--ligthPrimaryConfirm);
+  color: var(--white);
+  font-weight: 400;
+  height: 5vh;
+  vertical-align: middle;
+}
+.table thead th {
+  vertical-align: middle !important; /* Exception just to overwright boostrap class */
+
 }

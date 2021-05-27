@@ -15,7 +15,6 @@ const StyledNavbar = styled(Navbar)`
   .navbar-brand {
     font-size: 1.5rem;
     color: var(--primaryFontReverse);
-    cursor: pointer;
   }
 `;
 const StyledLink = styled(Link)`

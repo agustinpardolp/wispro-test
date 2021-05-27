@@ -1,9 +1,11 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import { StyledNavItem, StyledNav } from "../styled-components";
+import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
 
-function Tab({ tabs, location }) {
+import { StyledNavItem, StyledNav } from "../styled-components";
+
+function Tab({ tabs }) {
   if (!tabs) return null;
   return (
     <StyledNavItem className="nav nav-tabs nav-pills rounded-nav">
@@ -19,5 +21,7 @@ function Tab({ tabs, location }) {
     </StyledNavItem>
   );
 }
-
+Tab.propTypes = {
+  tabs: PropTypes.array,
+};
 export default withRouter(Tab);

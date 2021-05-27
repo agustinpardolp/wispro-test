@@ -1,24 +1,21 @@
 import React from "react";
-import { FormattedMessage } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import Select from "../../../../components/Select";
+import ViewWrapper from "../../../../components/ViewWrapper";
 import PropTypes from "prop-types";
 
-import { StyledTitle, StyledOptions } from "./styled-components";
-import { tableColumns, resetOption } from "../../constants";
+import { StyledOptions } from "./styled-components";
+import { columnHandler, resetOptionHandler } from "../../constants";
 
-const Submenu = ({ handleSelectOption, filteredList, handleSelectFilter }) => {
+const Submenu = ({ handleSelectOption, filteredList, handleSelectFilter, intl }) => {
   return (
-    <div>
-      <StyledTitle>
-        <FormattedMessage id="userTable.title" />
-      </StyledTitle>
+    <ViewWrapper title={"userTable.title" }>
       <StyledOptions>
         <Select
           title={"userFilter.title"}
           handleSelectOption={handleSelectOption}
-          options={[...tableColumns, ...resetOption]}
+          options={[...columnHandler(intl), ...resetOptionHandler(intl)]}
           icon={<FontAwesomeIcon icon={faFilter} />}
         />
         {!!filteredList?.length && (
@@ -30,7 +27,7 @@ const Submenu = ({ handleSelectOption, filteredList, handleSelectFilter }) => {
           />
         )}
       </StyledOptions>
-    </div>
+    </ViewWrapper>
   );
 };
 
@@ -39,6 +36,7 @@ Submenu.propTypes = {
   handleSelectFilter: PropTypes.func,
   filteredList: PropTypes.array,
   option: PropTypes.string,
+  intl: PropTypes.func
 };
 
 export default Submenu;

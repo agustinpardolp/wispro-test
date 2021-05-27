@@ -2,15 +2,15 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/storage";
 import "firebase/auth";
-
+  
 let firebaseConfig = {
-  apiKey: "AIzaSyDsCV7tzyGmLs9_Yg1y9sGzZaEXjty4mv0",
-  authDomain: "wispro-api.firebaseapp.com",
-  databaseURL: "https://wispro-api-default-rtdb.firebaseio.com",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_API_BASE_URL,
   projectId: "wispro-api",
   storageBucket: "wispro-api.appspot.com",
-  messagingSenderId: "1012034813791",
-  appId: "1:1012034813791:web:4caadd4b934e77fc7580ea"
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_API_ID
 };
 
 const app = firebase.initializeApp(firebaseConfig);

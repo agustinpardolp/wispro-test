@@ -27,8 +27,6 @@ export const mapStateToProps = (state) => {
       user: { token },
     },
   } = state;
-  console.log(state);
-
   return {
     token: token,
   };

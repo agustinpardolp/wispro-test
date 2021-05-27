@@ -7,7 +7,6 @@ const fetchUsersRequest = () => {
   };
 };
 const fetchUsersSuccess = (data) => {
-
   return {
     type: types.FETCH_USERS_SUCCESS,
     payload: { data: data },
@@ -84,4 +83,14 @@ export const deleteUser = (id) => (dispatch) => {
       return dispatch(deleteUserSuccess(res));
     })
     .catch((error) => dispatch(deleteUserFailure(error)));
+};
+
+const clearUsersRequest = (users) => {
+  return {
+    type: types.CLEAR_USERS_REQUEST,
+    payload: { data: users },
+  };
+};
+export const clearUsers = (users) => (dispatch) => {
+  dispatch(clearUsersRequest(users));
 };

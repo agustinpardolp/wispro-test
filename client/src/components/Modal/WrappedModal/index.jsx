@@ -1,9 +1,11 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
 import { FormattedMessage } from "react-intl";
+import PropTypes from "prop-types";
+
 import { StyledModalTitle, StyledModalContainer } from "../styled-components";
 
-function WrappedModal({ title, children, message }) {
+function WrappedModal({ title="default", children, message }) {
   return (
     <>
       <StyledModalTitle>
@@ -18,5 +20,10 @@ function WrappedModal({ title, children, message }) {
     </>
   );
 }
+WrappedModal.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.element,
+  message: PropTypes.string,
+};
 
 export default WrappedModal;

@@ -32,14 +32,3 @@ export const DEVICES_MAX_WIDTH = {
   desktop: `(max-width: ${MEDIA_SIZES.desktop})`,
   desktopL: `(max-width: ${MEDIA_SIZES.desktop})`,
 };
-
-export const DEVICES_MIN_WIDTH = {
-  mobileS: `(min-width: ${MEDIA_SIZES.mobileS})`,
-  mobileM: `(min-width: ${MEDIA_SIZES.mobileM})`,
-  mobileL: `(min-width: ${MEDIA_SIZES.mobileL})`,
-  tablet: `(min-width: ${MEDIA_SIZES.tablet})`,
-  laptop: `(min-width: ${MEDIA_SIZES.laptop})`,
-  laptopL: `(min-width: ${MEDIA_SIZES.laptopL})`,
-  desktop: `(min-width: ${MEDIA_SIZES.desktop})`,
-  desktopL: `(min-width: ${MEDIA_SIZES.desktop})`,
-};

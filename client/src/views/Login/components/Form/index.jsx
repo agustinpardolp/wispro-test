@@ -15,9 +15,9 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors }) => {
   const handleLoginSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      !errorsFormHandler() && handleSubmit();
+      !errorsFormHandler(errors) && handleSubmit();
     },
-    [handleSubmit]
+    [errors, handleSubmit]
   );
   return (
     <StyledLogin>
@@ -56,8 +56,8 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors }) => {
           <StyledButtonContainer>
             <Button
               label={"button.enter"}
-              type={!errorsFormHandler() ? "submit" : "text"}
-              variant={!errorsFormHandler() ? "confirm" : "disabled"}
+              type={!errorsFormHandler(errors) ? "submit" : "text"}
+              variant={!errorsFormHandler(errors) ? "confirm" : "disabled"}
             />
           </StyledButtonContainer>
         </div>

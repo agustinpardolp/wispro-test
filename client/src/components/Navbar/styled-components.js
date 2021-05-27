@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Navbar } from "react-bootstrap";
-import { DEVICES_MAX_WIDTH } from "../../constants";
 import { HashLink as Link } from "react-router-hash-link";
 
 const StyledNavbar = styled(Navbar)`
@@ -41,14 +40,6 @@ const StyledMenu = styled.ul`
     li {
       color: var(--primaryFontReverse);
     }
-    @media ${DEVICES_MAX_WIDTH.laptop} {
-      display: flex;
-      li {
-        padding: 0;
-      }
-    }
-  }
+  }`
 
-
-// `;
 export { StyledNavbar, StyledLink, StyledMenu };

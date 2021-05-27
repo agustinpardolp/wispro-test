@@ -30,7 +30,6 @@ export const Navbar = ({  history, token, logout }) => {
       },
     });
   };
-console.log(tokenData, token)
   return (
     <>
       <StyledNavbar bg="dark">

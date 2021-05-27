@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import LineChart from "../../components/LineChart";
 
@@ -13,4 +14,9 @@ const AccessInfo = ({ data }) => {
     </div>
   );
 };
+
+AccessInfo.propTypes = {
+  data: PropTypes.object,
+};
+
 export default AccessInfo;

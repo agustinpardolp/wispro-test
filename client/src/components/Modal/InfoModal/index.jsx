@@ -1,12 +1,15 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
+import { FormattedMessage } from "react-intl";
+import PropTypes from "prop-types";
+
 import Button from "../../Button";
 import {
   StyledModalTitle,
   StyledModalContainer,
   StyledButtonGroup,
 } from "../styled-components";
-import { FormattedMessage } from "react-intl";
+
 function GenericModal({
   title,
   message,
@@ -64,5 +67,16 @@ function GenericModal({
     </>
   );
 }
+
+GenericModal.propTypes = {
+  title: PropTypes.string,
+  message: PropTypes.string,
+  handleAsyncConfirm: PropTypes.func,
+  handleConfirm: PropTypes.func,
+  posResponse: PropTypes.func,
+  data: PropTypes.object,
+  dispatch: PropTypes.func,
+};
+
 
 export default GenericModal;

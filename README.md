@@ -3,6 +3,7 @@
 This app is completely based on the ReactJS, React-Redux, Styled Components.
 
 # Available Scripts
+First, select Master branch and clone the repository.
 
 In the project directory "/client", run:
 

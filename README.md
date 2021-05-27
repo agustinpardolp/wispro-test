@@ -1,8 +1,8 @@
-Technical Review - Frontend Developer
+## Technical Review - Frontend Developer
 
 This app is completely based on the ReactJS, React-Redux, Styled Components.
 
-## Available Scripts
+# Available Scripts
 
 In the project directory "client", run:
 

@@ -8,6 +8,11 @@ const StyledTable = styled(Table)`
     .icon-td {
       padding: 0.1rem;
     }
+    tbody {
+      height: 200px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
   }
 `;
 

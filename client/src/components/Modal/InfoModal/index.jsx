@@ -22,16 +22,20 @@ function GenericModal({
   const onAsyncConfirm = async (data) => {
     let response = await handleAsyncConfirm(data);
     response && posResponse();
-    dispatch({ type: "hide" });
+    onHandleClose()
+  };
+
+  const onConfirm = () => {
+    if (handleConfirm) {
+      handleConfirm();
+      onHandleClose();
+    } else {
+      onHandleClose();
+    }
   };
 
   const onHandleClose = () => {
-    if (handleConfirm) {
-      handleConfirm();
-      dispatch({ type: "hide" });
-    } else {
-      dispatch({ type: "hide" });
-    }
+    dispatch({ type: "hide" });
   };
 
   return (
@@ -59,7 +63,7 @@ function GenericModal({
             onClick={
               handleAsyncConfirm
                 ? () => onAsyncConfirm(data)
-                : () => onHandleClose()
+                : () => onConfirm()
             }
           />
         </StyledButtonGroup>
@@ -77,6 +81,5 @@ GenericModal.propTypes = {
   data: PropTypes.object,
   dispatch: PropTypes.func,
 };
-
 
 export default GenericModal;
